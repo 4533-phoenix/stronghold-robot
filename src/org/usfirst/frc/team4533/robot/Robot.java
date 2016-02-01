@@ -9,10 +9,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.first.team4533.robot.OI;
 import org.first.team4533.robot.autonomous.DefaultAutonomous;
 import org.first.team4533.robot.subsystems.DriveSystem;
-import org.first.team4533.robot.subsystems.GripperSystem;
-import org.first.team4533.robot.subsystems.LiftSystem;
-import org.usfirst.frc.team4534.robot.commands.ExampleCommand;
-import org.usfirst.frc.team4534.robot.subsystems.ExampleSubsystem;
+
 
 /**
  * Main class that is executed when robot is turned on
