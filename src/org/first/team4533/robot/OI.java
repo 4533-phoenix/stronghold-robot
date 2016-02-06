@@ -3,6 +3,9 @@ package org.first.team4533.robot;
 import org.first.team4533.robot.commands.IntakeIn;
 import org.first.team4533.robot.commands.IntakeOut;
 import org.first.team4533.robot.commands.IntakeStop;
+import org.first.team4533.robot.commands.PivotIn;
+import org.first.team4533.robot.commands.PivotOut;
+import org.first.team4533.robot.commands.PivotStop;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -45,6 +48,12 @@ public class OI {
 		intakeOut.whileHeld(new IntakeOut());
 		intakeOut.whenReleased(new IntakeStop());
 		
+		pivotIn.whileHeld(new PivotIn());
+		pivotIn.whenReleased(new PivotStop());
+		
+		pivotOut.whileHeld(new PivotOut());
+		pivotOut.whenReleased(new PivotStop());
+		
 		
 		
 	}
@@ -59,9 +68,9 @@ public class OI {
 		}
 	}
 
-	// public Joystick getGunnerJoystick() {
-	// return gunner;
-	// }
+    /*public Joystick getGunnerJoystick() {
+    	return gunner;
+	}*/
 
 	public Joystick getDriverJoystick() {
 		return driver;
