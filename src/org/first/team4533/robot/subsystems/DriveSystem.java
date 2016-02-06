@@ -28,22 +28,22 @@ public class DriveSystem extends Subsystem {
 	//private static final double DEFAULT_SPEED_ADJUSTMENT = 0.80;
 	
 	private DriveSystem() {
-		leftFront = new CANTalon(RobotMap.MOTOR_LEFT_FRONT);
+		/*leftFront = new CANTalon(RobotMap.MOTOR_LEFT_FRONT);
 		rightFront = new CANTalon(RobotMap.MOTOR_RIGHT_FRONT);
 		leftRear = new CANTalon(RobotMap.MOTOR_LEFT_REAR);
 		rightRear = new CANTalon(RobotMap.MOTOR_RIGHT_REAR);
 		robotDrive = new RobotDrive(this.leftFront, this.leftRear,
-				this.rightFront, this.rightRear);
+				this.rightFront, this.rightRear);*/
 		/*robotDrive.setInvertedMotor(MotorType.kFrontRight, true);
 		robotDrive.setInvertedMotor(MotorType.kRearRight, true);*/
 		
 		//Motor controller assignments for practice bot
-		/*leftFront = new Talon(RobotMap.MOTOR_LEFT_FRONT);
+		leftFront = new Talon(RobotMap.MOTOR_LEFT_FRONT);
 		rightFront = new Talon(RobotMap.MOTOR_RIGHT_FRONT);
 		leftRear = new Talon(RobotMap.MOTOR_LEFT_REAR);
 		rightRear = new Talon(RobotMap.MOTOR_RIGHT_REAR);
 		robotDrive = new RobotDrive(this.leftFront, this.leftRear,
-				this.rightFront, this.rightRear);*/
+				this.rightFront, this.rightRear);
 	}
     
 	public static void initialize() {
@@ -57,25 +57,26 @@ public class DriveSystem extends Subsystem {
 	}
 	
 	public void driveWithJoystick(Joystick driver) {
-		
+		double x = driver.getX();
+		double y = driver.getY();
 		//The most basic tank robot drive command
-		//tankDrive(double leftValue, double rightValue);
+		this.robotDrive.tankDrive(x, y);
 	}
 	
 	public void forward(double value) {
-		this.robotDrive.tankDrive(0.0,0.0);
+		this.robotDrive.tankDrive(value,value);
 	}
 
 	public void forward() {
-		this.forward(1.0);
+		this.forward(.75);
 	}
 
 	public void backward(double value) {
-		this.robotDrive.tankDrive(0.0,0.0);
+		this.robotDrive.tankDrive(value,value);
 	}
 
 	public void backward() {
-		this.backward(1.0);
+		this.backward(-0.75);
 	}
 
 	public void stop() {

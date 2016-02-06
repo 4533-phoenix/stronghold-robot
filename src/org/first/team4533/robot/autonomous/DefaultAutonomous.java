@@ -10,8 +10,8 @@ public class DefaultAutonomous extends CommandGroup{
 	private static final long DRIVE_BACKWARD_DURATION = 250;
 
 	public DefaultAutonomous() {
-		this.addSequential(new TimedDriveForward(DRIVE_FORWARD_DURATION));
-		this.addSequential(new TimedDriveBackward(DRIVE_BACKWARD_DURATION));
+		//this.addSequential(new TimedDriveForward(DRIVE_FORWARD_DURATION));
+		//this.addSequential(new TimedDriveBackward(DRIVE_BACKWARD_DURATION));
 	}
 
 
