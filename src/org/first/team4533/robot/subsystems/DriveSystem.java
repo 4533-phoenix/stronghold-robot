@@ -36,6 +36,14 @@ public class DriveSystem extends Subsystem {
 				this.rightFront, this.rightRear);
 		/*robotDrive.setInvertedMotor(MotorType.kFrontRight, true);
 		robotDrive.setInvertedMotor(MotorType.kRearRight, true);*/
+		
+		//Motor controller assignments for practice bot
+		/*leftFront = new Talon(RobotMap.MOTOR_LEFT_FRONT);
+		rightFront = new Talon(RobotMap.MOTOR_RIGHT_FRONT);
+		leftRear = new Talon(RobotMap.MOTOR_LEFT_REAR);
+		rightRear = new Talon(RobotMap.MOTOR_RIGHT_REAR);
+		robotDrive = new RobotDrive(this.leftFront, this.leftRear,
+				this.rightFront, this.rightRear);*/
 	}
     
 	public static void initialize() {

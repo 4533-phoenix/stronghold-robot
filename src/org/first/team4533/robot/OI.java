@@ -1,5 +1,9 @@
 package org.first.team4533.robot;
 
+import org.first.team4533.robot.commands.IntakeIn;
+import org.first.team4533.robot.commands.IntakeOut;
+import org.first.team4533.robot.commands.IntakeStop;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -18,15 +22,30 @@ public class OI {
 	//Please do change them
 	public static final int JOYSTICK_INTAKE = 1;
 	public static final int JOYSTICK_REVERSE_INTAKE = 2;
-	public static final int JOYSTICK_SHOOTER = 5;
-	public static final int JOYSTICK_ClIMB_UP = 6;
+	public static final int JOYSTICK_PIVOT_OUT = 5;
+	public static final int JOYSTICK_PIVOT_IN = 6;
+	public static final int JOYSTICK_ClIMB_UP = 7;
 	public static final int JOYSTICK_CLIMB_DOWN = 8;
-	//public static final int JOYSTICK_GRIPPER_OPEN = 7;
+	//public static final int JOYSTICK_SHOOTER = 9;
 	
 	private OI() {
 		// this.gunner = new Joystick(1);
 		
+		JoystickButton intakeIn = new JoystickButton(driver, JOYSTICK_INTAKE);
+		JoystickButton intakeOut = new JoystickButton(driver, JOYSTICK_REVERSE_INTAKE);
+		JoystickButton pivotOut = new JoystickButton(driver,
+				JOYSTICK_PIVOT_OUT);
+		JoystickButton pivotIn = new JoystickButton(driver,
+				JOYSTICK_PIVOT_IN);
+		
 		//A lot of stuff needs to go here
+		intakeIn.whileHeld(new IntakeIn());
+		intakeIn.whenReleased(new IntakeStop());
+		
+		intakeOut.whileHeld(new IntakeOut());
+		intakeOut.whenReleased(new IntakeStop());
+		
+		
 		
 	}
 	
