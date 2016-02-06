@@ -1,12 +1,11 @@
 
-package org.usfirst.frc.team4533.robot;
+package org.first.team4533.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
-import org.first.team4533.robot.OI;
 import org.first.team4533.robot.autonomous.DefaultAutonomous;
 import org.first.team4533.robot.subsystems.DriveSystem;
 
@@ -16,7 +15,7 @@ import org.first.team4533.robot.subsystems.DriveSystem;
  */
 public class Robot extends IterativeRobot {
 
-	private Command autonomousCommand;
+	private DefaultAutonomous autonomousCommand;
 
     public void robotInit() {
     	

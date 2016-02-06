@@ -1,10 +1,11 @@
-package org.usfirst.frc.team4533.robot.commands;
+package org.first.team4533.robot.commands;
+
+import org.first.team4533.robot.subsystems.DriveSystem;
 
 import edu.wpi.first.wpilibj.Joystick;
-import org.first.team4533.robot.subsystems.DriveSystem;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class DriveWithJoystick extends Command {
+public class DriveWithJoystick extends Command{
 	private DriveSystem drive;
 	private Joystick driver;
 
@@ -12,6 +13,11 @@ public class DriveWithJoystick extends Command {
 		this.drive = DriveSystem.getInstance();
 		driver = new Joystick(0);
 		this.requires(drive);
+	}
+
+	private void requires(DriveSystem drive2) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	protected void execute() {
