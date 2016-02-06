@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import org.first.team4533.robot.autonomous.DefaultAutonomous;
 import org.first.team4533.robot.subsystems.DriveSystem;
+import org.first.team4533.robot.subsystems.IntakeSystem;
+import org.first.team4533.robot.subsystems.PivotSystem;
 
 
 /**
@@ -19,9 +21,9 @@ public class Robot extends IterativeRobot {
 
     public void robotInit() {
     	
-    	
+    	PivotSystem.initialize();
     	DriveSystem.initialize();
-        
+        IntakeSystem.initialize();
         OI.initialize();
     }
 	

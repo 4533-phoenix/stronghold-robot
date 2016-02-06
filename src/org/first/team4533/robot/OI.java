@@ -32,7 +32,6 @@ public class OI {
 	//public static final int JOYSTICK_SHOOTER = 9;
 	
 	private OI() {
-		// this.gunner = new Joystick(1);
 		
 		JoystickButton intakeIn = new JoystickButton(driver, JOYSTICK_INTAKE);
 		JoystickButton intakeOut = new JoystickButton(driver, JOYSTICK_REVERSE_INTAKE);

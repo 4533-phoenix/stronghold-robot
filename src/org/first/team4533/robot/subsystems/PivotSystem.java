@@ -23,6 +23,11 @@ public class PivotSystem extends Subsystem {
 	public static PivotSystem getInstance() {
 		return INSTANCE;
 	}
+	public static void initialize() {
+		if (INSTANCE == null) {
+			INSTANCE = new PivotSystem();
+		}
+	}
 	
 	public void in() {
 		pivotmotor.set(DEFAULT_PIVOT_IN_VALUE);
