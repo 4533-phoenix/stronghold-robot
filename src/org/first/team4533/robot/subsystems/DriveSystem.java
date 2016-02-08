@@ -57,10 +57,10 @@ public class DriveSystem extends Subsystem {
 	}
 	
 	public void driveWithJoystick(Joystick driver) {
-		double x = driver.getX();
 		double y = driver.getY();
+		double z = driver.getZ();
 		//The most basic tank robot drive command
-		this.robotDrive.tankDrive(x, y);
+		this.robotDrive.tankDrive(y, z);
 	}
 	
 	public void forward(double value) {
