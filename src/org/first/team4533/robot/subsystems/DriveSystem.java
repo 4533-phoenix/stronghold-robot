@@ -59,11 +59,11 @@ public class DriveSystem extends Subsystem {
 	public void driveWithJoystick(Joystick driver) {
 		
 		//The most basic tank robot drive command
-		//tankDrive(double leftValue, double rightValue);
+		robotDrive.tankDrive(-driver.getY(), -driver.getRawAxis(3));
 	}
 	
 	public void forward(double value) {
-		this.robotDrive.tankDrive(0.0,0.0);
+		this.robotDrive.tankDrive(value, -value);
 	}
 
 	public void forward() {
@@ -71,7 +71,7 @@ public class DriveSystem extends Subsystem {
 	}
 
 	public void backward(double value) {
-		this.robotDrive.tankDrive(0.0,0.0);
+		this.robotDrive.tankDrive(value,value);
 	}
 
 	public void backward() {
