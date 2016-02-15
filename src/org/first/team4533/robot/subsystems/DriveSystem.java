@@ -32,8 +32,8 @@ public class DriveSystem extends Subsystem {
 		rightFront = new CANTalon(RobotMap.MOTOR_RIGHT_FRONT);
 		leftRear = new CANTalon(RobotMap.MOTOR_LEFT_REAR);
 		rightRear = new CANTalon(RobotMap.MOTOR_RIGHT_REAR);
-		robotDrive = new RobotDrive(this.leftFront, this.leftRear,
-				this.rightFront, this.rightRear);
+		robotDrive = new RobotDrive(this.leftRear, this.leftFront,
+				this.rightRear, this.rightFront);
 		/*robotDrive.setInvertedMotor(MotorType.kFrontRight, true);
 		robotDrive.setInvertedMotor(MotorType.kRearRight, true);*/
 		
