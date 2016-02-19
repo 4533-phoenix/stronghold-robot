@@ -18,29 +18,30 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI {
 	private Joystick driver = new Joystick(0);
-	// private Joystick gunner = new Joystick(1);
+	private Joystick gunner = new Joystick(1);
 	private static OI INSTANCE;
 	
 	//All below assignments are subject to change and likely will change
 	//Please do change them
-	public static final int JOYSTICK_INTAKE = 1;			//X
-	public static final int JOYSTICK_REVERSE_INTAKE = 2;	//A
-	//3 = B, 4 = Y
-	public static final int JOYSTICK_PIVOT_OUT = 8;			//RT
-	public static final int JOYSTICK_PIVOT_IN = 7;			//LT
-	public static final int JOYSTICK_ClIMB_UP = 6;			//RB	
-	public static final int JOYSTICK_CLIMB_DOWN = 5;		//LB
+	public static final int JOYSTICK_INTAKE = 7;			//1 = X
+	public static final int JOYSTICK_REVERSE_INTAKE = 8;	//2 = A
+															//3 = B
+															//4 = Y
+	public static final int JOYSTICK_CLIMB_DOWN = 4;		//5 = LB
+	public static final int JOYSTICK_ClIMB_UP = 2;			//6 = RB
+	public static final int JOYSTICK_PIVOT_IN = 5;			//7 = LT
+	public static final int JOYSTICK_PIVOT_OUT = 6;			//8 = RT
 	//public static final int JOYSTICK_SHOOTER = 9;
-	
+		
 	private OI() {
 		
-		JoystickButton intakeIn = new JoystickButton(driver, 
+		JoystickButton intakeIn = new JoystickButton(gunner, 
 				JOYSTICK_INTAKE);
-		JoystickButton intakeOut = new JoystickButton(driver, 
+		JoystickButton intakeOut = new JoystickButton(gunner, 
 				JOYSTICK_REVERSE_INTAKE);
-		JoystickButton pivotOut = new JoystickButton(driver,
+		JoystickButton pivotOut = new JoystickButton(gunner,
 				JOYSTICK_PIVOT_OUT);
-		JoystickButton pivotIn = new JoystickButton(driver,
+		JoystickButton pivotIn = new JoystickButton(gunner,
 				JOYSTICK_PIVOT_IN);
 		
 		//A lot of stuff needs to go here
