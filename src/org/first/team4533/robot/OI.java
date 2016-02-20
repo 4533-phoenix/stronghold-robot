@@ -1,5 +1,7 @@
 package org.first.team4533.robot;
 
+import org.first.team4533.robot.commands.ClimbStop;
+import org.first.team4533.robot.commands.ClimbUp;
 import org.first.team4533.robot.commands.IntakeIn;
 import org.first.team4533.robot.commands.IntakeOut;
 import org.first.team4533.robot.commands.IntakeStop;
@@ -8,7 +10,6 @@ import org.first.team4533.robot.commands.PivotOut;
 import org.first.team4533.robot.commands.PivotStop;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 
@@ -27,11 +28,11 @@ public class OI {
 	public static final int JOYSTICK_REVERSE_INTAKE = 8;	//2 = A
 															//3 = B
 															//4 = Y
-	public static final int JOYSTICK_CLIMB_DOWN = 4;		//5 = LB
-	public static final int JOYSTICK_ClIMB_UP = 2;			//6 = RB
+	public static final int JOYSTICK_CLIMB_UP = 4;			//5 = LB
+	public static final int JOYSTICK_ClIMB_RELEASE = 2;		//6 = RB
 	public static final int JOYSTICK_PIVOT_IN = 5;			//7 = LT
 	public static final int JOYSTICK_PIVOT_OUT = 6;			//8 = RT
-	//public static final int JOYSTICK_SHOOTER = 9;
+	//public static final int JOYSTICK_SHOOTER = ?;
 		
 	private OI() {
 		
@@ -43,6 +44,10 @@ public class OI {
 				JOYSTICK_PIVOT_OUT);
 		JoystickButton pivotIn = new JoystickButton(gunner,
 				JOYSTICK_PIVOT_IN);
+		/*JoystickButton climbRelease = new JoystickButton(gunner,
+				JOYSTICK_ClIMB_RELEASE);*/
+		JoystickButton climbUp = new JoystickButton(gunner,
+				JOYSTICK_CLIMB_UP);
 		
 		//A lot of stuff needs to go here
 		intakeIn.whileHeld(new IntakeIn());
@@ -57,7 +62,11 @@ public class OI {
 		pivotOut.whileHeld(new PivotOut());
 		pivotOut.whenReleased(new PivotStop());
 		
+		/*climbRelease.whileHeld(new ClimbRelease());
+		climbRelease.whenReleased(new ClimbStop());*/
 		
+		climbUp.whileHeld(new ClimbUp());
+		climbUp.whenReleased(new ClimbStop());
 		
 	}
 	
@@ -71,12 +80,14 @@ public class OI {
 		}
 	}
 
-    /*public Joystick getGunnerJoystick() {
+    public Joystick getGunnerJoystick() {
     	return gunner;
-	}*/
+	}
 
 	public Joystick getDriverJoystick() {
 		return driver;
 	}
+	
+	
 }
 

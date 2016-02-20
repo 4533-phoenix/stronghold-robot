@@ -2,7 +2,7 @@ package org.first.team4533.robot.subsystems;
 
 import org.first.team4533.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -11,13 +11,13 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class IntakeSystem extends Subsystem {
     
     private static IntakeSystem INSTANCE;
-    private Talon intakemotor;
+    private Spark intakemotor;
     private static final double DEFAULT_INTAKE_STOP_VALUE = 0.0;
 	private static final double DEFAULT_INTAKE_IN_VALUE = 1.0;
 	private static final double DEFAULT_INTAKE_OUT_VALUE = -1.0;
 	
 	private IntakeSystem() {
-		intakemotor = new Talon(RobotMap.MOTOR_ROLLER);
+		intakemotor = new Spark(RobotMap.MOTOR_ROLLER);
 	}
 	public static IntakeSystem getInstance() {
 		return INSTANCE;
