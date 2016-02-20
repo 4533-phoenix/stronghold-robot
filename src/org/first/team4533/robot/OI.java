@@ -1,5 +1,6 @@
 package org.first.team4533.robot;
 
+import org.first.team4533.robot.commands.ClimbRelease;
 import org.first.team4533.robot.commands.ClimbStop;
 import org.first.team4533.robot.commands.ClimbUp;
 import org.first.team4533.robot.commands.IntakeIn;
@@ -44,8 +45,8 @@ public class OI {
 				JOYSTICK_PIVOT_OUT);
 		JoystickButton pivotIn = new JoystickButton(gunner,
 				JOYSTICK_PIVOT_IN);
-		/*JoystickButton climbRelease = new JoystickButton(gunner,
-				JOYSTICK_ClIMB_RELEASE);*/
+		JoystickButton climbRelease = new JoystickButton(gunner,
+				JOYSTICK_ClIMB_RELEASE);
 		JoystickButton climbUp = new JoystickButton(gunner,
 				JOYSTICK_CLIMB_UP);
 		
@@ -62,8 +63,8 @@ public class OI {
 		pivotOut.whileHeld(new PivotOut());
 		pivotOut.whenReleased(new PivotStop());
 		
-		/*climbRelease.whileHeld(new ClimbRelease());
-		climbRelease.whenReleased(new ClimbStop());*/
+		climbRelease.whileHeld(new ClimbRelease());
+		climbRelease.whenReleased(new ClimbStop());
 		
 		climbUp.whileHeld(new ClimbUp());
 		climbUp.whenReleased(new ClimbStop());

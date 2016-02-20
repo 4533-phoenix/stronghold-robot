@@ -2,7 +2,7 @@ package org.first.team4533.robot.subsystems;
 
 import org.first.team4533.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -11,13 +11,13 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class ClimbSystem extends Subsystem {
     
 	private static ClimbSystem INSTANCE;
-    private Spark climbmotor;
+    private CANTalon climbmotor;
     private static final double DEFAULT_CLIMB_STOP_VALUE = 0.0;
 	private static final double DEFAULT_CLIMB_UP_VALUE = 0.75;
 	private static final double DEFAULT_CLIMB_RELEASE_VALUE = -1.0;
 	
 	private ClimbSystem() {
-		climbmotor = new Spark(RobotMap.MOTOR_CLIMB);
+		climbmotor = new CANTalon(RobotMap.MOTOR_CLIMB);
 	}
 	public static ClimbSystem getInstance() {
 		return INSTANCE;
