@@ -30,6 +30,9 @@ public class ClimbSystem extends Subsystem {
 	
 	public void release() {
 		climbmotor.set(DEFAULT_CLIMB_RELEASE_VALUE);
+		//Figure out how this is going to work
+		//What is above might not be enough, we will have to see
+		//Once it is figured out we need to create the corresponding command
 	}
 
 	public void up() {
