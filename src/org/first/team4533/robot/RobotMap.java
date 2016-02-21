@@ -8,9 +8,10 @@ public class RobotMap {
 		public static final int MOTOR_PIVOT = 6;		//CAN Talon SRX
 		public static final int MOTOR_CLIMB = 3;		//CAN Talon SRX
 		public static final int MOTOR_ROLLER = 0;		//PWM Spark?
+		public static final int POTENTIOMETER_PIVOT = 0;	//Analog
 		
 		//CAN
-		//RoboRio>>Left front>>Left rear>>Climber>>14>>15>>11>>PDB
+		//RoboRio>>Left front>>Left rear>>Climber>>Right rear>>Right front>>Pivot>>PDB
 		
 		//For practice Bot
 		/*public static final int MOTOR_LEFT_FRONT = 0;	

@@ -79,6 +79,22 @@ public class DriveSystem extends Subsystem {
 	public void stop() {
 		this.robotDrive.tankDrive(0.0, 0.0);
 	}
+	
+	public void turnLeft(double value1, double value2) {
+		this.robotDrive.tankDrive(value1, value2);
+	}
+	
+	public void turnLeft() {
+		this.turnLeft(-.5,.5);
+	}
+	
+	public void turnRight(double value1, double value2) {
+		this.robotDrive.tankDrive(value1, value2);
+	}
+	
+	public void turnRight() {
+		this.turnRight(.5,-.5);
+	}
 
     public void initDefaultCommand() {
     	this.setDefaultCommand(new DriveWithJoystick());
