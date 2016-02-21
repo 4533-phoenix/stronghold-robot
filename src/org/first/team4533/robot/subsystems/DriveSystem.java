@@ -6,8 +6,7 @@ import org.first.team4533.robot.subsystems.DriveSystem;
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -17,21 +16,25 @@ public class DriveSystem extends Subsystem {
 	
 	private static DriveSystem INSTANCE;
 	//Below are the drive command and the 4 motor controller  
-	private SpeedController leftFront;
-	private SpeedController rightFront;
-	private SpeedController leftRear;
-	private SpeedController rightRear;
-	private RobotDrive robotDrive;
+	private CANTalon leftMaster;
+	private CANTalon rightMaster;
+	private CANTalon leftSlave;
+	private CANTalon rightSlave;
+	//private RobotDrive robotDrive;
 	
 	//private static final double DEFAULT_SPEED_ADJUSTMENT = 0.80;
 	
 	private DriveSystem() {
-		leftFront = new CANTalon(RobotMap.MOTOR_LEFT_FRONT);
-		rightFront = new CANTalon(RobotMap.MOTOR_RIGHT_FRONT);
-		leftRear = new CANTalon(RobotMap.MOTOR_LEFT_REAR);
-		rightRear = new CANTalon(RobotMap.MOTOR_RIGHT_REAR);
-		robotDrive = new RobotDrive(this.leftRear, this.leftFront,
-				this.rightRear, this.rightFront);
+		leftMaster = new CANTalon(RobotMap.MOTOR_LEFT_MASTER);
+		rightMaster = new CANTalon(RobotMap.MOTOR_RIGHT_MASTER);
+
+		leftSlave = new CANTalon(RobotMap.MOTOR_LEFT_SLAVE);
+		leftSlave.changeControlMode(TalonControlMode.Follower);
+		leftSlave.set(RobotMap.MOTOR_LEFT_MASTER);
+		
+		rightSlave = new CANTalon(RobotMap.MOTOR_RIGHT_SLAVE);
+		rightSlave.changeControlMode(TalonControlMode.Follower);
+		rightSlave.set(RobotMap.MOTOR_RIGHT_MASTER);
 		/*robotDrive.setInvertedMotor(MotorType.kFrontRight, true);
 		robotDrive.setInvertedMotor(MotorType.kRearRight, true);*/
 		
@@ -55,33 +58,38 @@ public class DriveSystem extends Subsystem {
 	}
 	
 	public void driveWithJoystick(Joystick driver) {
-		
-		//The most basic tank robot drive command
-		robotDrive.tankDrive(driver.getY(), driver.getRawAxis(3));
+		this.drive(driver.getY(), driver.getRawAxis(3));
 	}
 	
 	public void forward(double value) {
-		this.robotDrive.tankDrive(value, -value);
+		this.drive(value, value);
 	}
 
+	public void drive(double left, double right) {
+		this.leftMaster.set(left);
+		this.leftSlave.set(RobotMap.MOTOR_LEFT_MASTER);
+		this.rightMaster.set(right);
+		this.rightSlave.set(RobotMap.MOTOR_RIGHT_MASTER);
+	}
+	
 	public void forward() {
 		this.forward(1.0);
 	}
 
 	public void backward(double value) {
-		this.robotDrive.tankDrive(value,value);
+		this.drive(value,value);
 	}
 
 	public void backward() {
-		this.backward(1.0);
+		this.backward(-1.0);
 	}
 
 	public void stop() {
-		this.robotDrive.tankDrive(0.0, 0.0);
+		this.drive(0.0, 0.0);
 	}
 	
 	public void turnLeft(double value1, double value2) {
-		this.robotDrive.tankDrive(value1, value2);
+		this.drive(value1, value2);
 	}
 	
 	public void turnLeft() {
@@ -89,7 +97,7 @@ public class DriveSystem extends Subsystem {
 	}
 	
 	public void turnRight(double value1, double value2) {
-		this.robotDrive.tankDrive(value1, value2);
+		this.drive(value1, value2);
 	}
 	
 	public void turnRight() {

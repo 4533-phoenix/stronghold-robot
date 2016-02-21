@@ -2,10 +2,14 @@
 package org.first.team4533.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.first.team4533.robot.autonomous.DefaultAutonomous;
+import org.first.team4533.robot.autonomous.SecondaryAutonomous;
 import org.first.team4533.robot.subsystems.DriveSystem;
 import org.first.team4533.robot.subsystems.IntakeSystem;
 import org.first.team4533.robot.subsystems.PivotSystem;
@@ -16,7 +20,8 @@ import org.first.team4533.robot.subsystems.PivotSystem;
  */
 public class Robot extends IterativeRobot {
 
-	private DefaultAutonomous autonomousCommand;
+	private CommandGroup autonomousCommand;
+	private SendableChooser autoChooser;
 
     public void robotInit() {
     	
@@ -24,6 +29,12 @@ public class Robot extends IterativeRobot {
     	DriveSystem.initialize();
         IntakeSystem.initialize();
         OI.initialize();
+        
+        autoChooser = new SendableChooser();
+        autoChooser.addDefault("Default program", new DefaultAutonomous());
+        autoChooser.addObject("1 Defense off program", new SecondaryAutonomous());
+        //autoChooser.addObject("2 Defense of program" , new TertiaryAutonomous());
+        SmartDashboard.putData("Autonomous mode chooser", autoChooser);
     }
 	
 	public void disabledPeriodic() {
@@ -31,7 +42,7 @@ public class Robot extends IterativeRobot {
 	}
 
     public void autonomousInit() {
-    	this.autonomousCommand = new DefaultAutonomous();
+    	this.autonomousCommand = (CommandGroup) autoChooser.getSelected();
         this.autonomousCommand.start();
     }
 
