@@ -66,7 +66,7 @@ public class DriveSystem extends Subsystem {
 	}
 
 	public void drive(double left, double right) {
-		this.leftMaster.set(left);
+		this.leftMaster.set(-left);
 		this.leftSlave.set(RobotMap.MOTOR_LEFT_MASTER);
 		this.rightMaster.set(right);
 		this.rightSlave.set(RobotMap.MOTOR_RIGHT_MASTER);
@@ -108,8 +108,4 @@ public class DriveSystem extends Subsystem {
     	this.setDefaultCommand(new DriveWithJoystick());
     }
 
-	private void setDefaultCommand(DriveWithJoystick driveWithJoystick) {
-		// TODO Auto-generated method stub
-		
-	}
 }

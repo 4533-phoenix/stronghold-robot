@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.first.team4533.robot.autonomous.DefaultAutonomous;
 import org.first.team4533.robot.autonomous.SecondaryAutonomous;
+import org.first.team4533.robot.subsystems.ClimbSystem;
 import org.first.team4533.robot.subsystems.DriveSystem;
 import org.first.team4533.robot.subsystems.IntakeSystem;
 import org.first.team4533.robot.subsystems.PivotSystem;
@@ -21,20 +22,21 @@ import org.first.team4533.robot.subsystems.PivotSystem;
 public class Robot extends IterativeRobot {
 
 	private CommandGroup autonomousCommand;
-	private SendableChooser autoChooser;
+	//private SendableChooser autoChooser;
 
     public void robotInit() {
-    	
+    	ClimbSystem.initialize();
     	PivotSystem.initialize();
     	DriveSystem.initialize();
         IntakeSystem.initialize();
         OI.initialize();
         
-        autoChooser = new SendableChooser();
+        
+        /*autoChooser = new SendableChooser();
         autoChooser.addDefault("Default program", new DefaultAutonomous());
         autoChooser.addObject("1 Defense off program", new SecondaryAutonomous());
-        //autoChooser.addObject("2 Defense of program" , new TertiaryAutonomous());
-        SmartDashboard.putData("Autonomous mode chooser", autoChooser);
+        //autoChooser.addObject("2 Defense of program" , new TertiaryAutonomous());*/
+        //SmartDashboard.putData("Autonomous mode chooser", autoChooser);*/
     }
 	
 	public void disabledPeriodic() {
@@ -42,7 +44,8 @@ public class Robot extends IterativeRobot {
 	}
 
     public void autonomousInit() {
-    	this.autonomousCommand = (CommandGroup) autoChooser.getSelected();
+    	this.autonomousCommand = 
+    			new DefaultAutonomous();//(CommandGroup) autoChooser.getSelected();
         this.autonomousCommand.start();
     }
 

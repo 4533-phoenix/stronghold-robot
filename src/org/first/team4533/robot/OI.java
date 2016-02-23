@@ -24,7 +24,6 @@ public class OI {
 	private static OI INSTANCE;
 	
 	//All below assignments are subject to change and likely will change
-	//Please do change them
 	public static final int JOYSTICK_INTAKE = 7;			//1 = X
 	public static final int JOYSTICK_REVERSE_INTAKE = 8;	//2 = A
 															//3 = B
@@ -37,20 +36,19 @@ public class OI {
 		
 	private OI() {
 		
-		JoystickButton intakeIn = new JoystickButton(gunner, 
-				JOYSTICK_INTAKE);
-		JoystickButton intakeOut = new JoystickButton(gunner, 
-				JOYSTICK_REVERSE_INTAKE);
-		JoystickButton pivotOut = new JoystickButton(gunner,
-				JOYSTICK_PIVOT_OUT);
-		JoystickButton pivotIn = new JoystickButton(gunner,
-				JOYSTICK_PIVOT_IN);
-		JoystickButton climbRelease = new JoystickButton(gunner,
-				JOYSTICK_ClIMB_RELEASE);
-		JoystickButton climbUp = new JoystickButton(gunner,
-				JOYSTICK_CLIMB_UP);
+		JoystickButton intakeIn = new JoystickButton(//gunner, 
+				driver, JOYSTICK_INTAKE);
+		JoystickButton intakeOut = new JoystickButton(//gunner, 
+				driver, JOYSTICK_REVERSE_INTAKE);
+		JoystickButton pivotOut = new JoystickButton(//gunner,
+				driver, JOYSTICK_PIVOT_OUT);
+		JoystickButton pivotIn = new JoystickButton(//gunner,
+				driver, JOYSTICK_PIVOT_IN);
+		JoystickButton climbRelease = new JoystickButton(//gunner,
+				driver, JOYSTICK_ClIMB_RELEASE);
+		JoystickButton climbUp = new JoystickButton(//gunner,
+				driver, JOYSTICK_CLIMB_UP);
 		
-		//A lot of stuff needs to go here
 		intakeIn.whileHeld(new IntakeIn());
 		intakeIn.whenReleased(new IntakeStop());
 		

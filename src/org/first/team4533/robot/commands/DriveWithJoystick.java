@@ -15,11 +15,6 @@ public class DriveWithJoystick extends Command{
 		this.requires(drive);
 	}
 
-	private void requires(DriveSystem drive2) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	protected void execute() {
 		this.drive.driveWithJoystick(this.driver);
 	}
