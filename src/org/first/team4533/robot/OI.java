@@ -30,8 +30,8 @@ public class OI {
 															//4 = Y
 	public static final int JOYSTICK_CLIMB_UP = 4;			//5 = LB
 	public static final int JOYSTICK_ClIMB_RELEASE = 2;		//6 = RB
-	public static final int JOYSTICK_PIVOT_IN = 5;			//7 = LT
-	public static final int JOYSTICK_PIVOT_OUT = 6;			//8 = RT
+	public static final int JOYSTICK_PIVOT_IN = 6;			//7 = LT
+	public static final int JOYSTICK_PIVOT_OUT = 5;			//8 = RT
 	//public static final int JOYSTICK_SHOOTER = ?;
 		
 	private OI() {

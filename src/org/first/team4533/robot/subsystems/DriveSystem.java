@@ -22,7 +22,7 @@ public class DriveSystem extends Subsystem {
 	private CANTalon rightSlave;
 	//private RobotDrive robotDrive;
 	
-	//private static final double DEFAULT_SPEED_ADJUSTMENT = 0.80;
+	private static final double DEFAULT_SPEED_ADJUSTMENT = 0.60;
 	
 	private DriveSystem() {
 		leftMaster = new CANTalon(RobotMap.MOTOR_LEFT_MASTER);
@@ -57,6 +57,12 @@ public class DriveSystem extends Subsystem {
 		return INSTANCE;
 	}
 	
+	public void drive(double left, double right) {
+		this.leftMaster.set(-left*DEFAULT_SPEED_ADJUSTMENT);
+		this.leftSlave.set(RobotMap.MOTOR_LEFT_MASTER);
+		this.rightMaster.set(right*DEFAULT_SPEED_ADJUSTMENT);
+		this.rightSlave.set(RobotMap.MOTOR_RIGHT_MASTER);
+	}
 	public void driveWithJoystick(Joystick driver) {
 		this.drive(driver.getY(), driver.getRawAxis(3));
 	}
@@ -65,13 +71,6 @@ public class DriveSystem extends Subsystem {
 		this.drive(value, value);
 	}
 
-	public void drive(double left, double right) {
-		this.leftMaster.set(-left);
-		this.leftSlave.set(RobotMap.MOTOR_LEFT_MASTER);
-		this.rightMaster.set(right);
-		this.rightSlave.set(RobotMap.MOTOR_RIGHT_MASTER);
-	}
-	
 	public void forward() {
 		this.forward(1.0);
 	}
