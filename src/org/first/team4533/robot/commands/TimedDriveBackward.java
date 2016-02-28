@@ -6,7 +6,7 @@ public class TimedDriveBackward extends TimedCommand {
 
 	private DriveSystem drive;
 
-	private static final double DEFAULT_DRIVE_SPEED = -0.50;
+	private static final double DEFAULT_DRIVE_SPEED = -0.80;
 
 	public TimedDriveBackward(long duration) {
 		super(duration);

@@ -1,12 +1,14 @@
 
 package org.first.team4533.robot;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.vision.USBCamera;
 
 import org.first.team4533.robot.autonomous.DefaultAutonomous;
 import org.first.team4533.robot.autonomous.SecondaryAutonomous;
@@ -22,9 +24,15 @@ import org.first.team4533.robot.subsystems.PivotSystem;
 public class Robot extends IterativeRobot {
 
 	private CommandGroup autonomousCommand;
-	//private SendableChooser autoChooser;
+	private SendableChooser autoChooser;
+	//private CameraServer cameraServer;
 
     public void robotInit() {
+    	/*USBCamera camera = new USBCamera();
+    	cameraServer = CameraServer.getInstance();
+        cameraServer.setQuality(50);
+        cameraServer.startAutomaticCapture(camera);*/
+    	
     	ClimbSystem.initialize();
     	PivotSystem.initialize();
     	DriveSystem.initialize();
@@ -35,8 +43,8 @@ public class Robot extends IterativeRobot {
         /*autoChooser = new SendableChooser();
         autoChooser.addDefault("Default program", new DefaultAutonomous());
         autoChooser.addObject("1 Defense off program", new SecondaryAutonomous());
-        //autoChooser.addObject("2 Defense of program" , new TertiaryAutonomous());*/
-        //SmartDashboard.putData("Autonomous mode chooser", autoChooser);*/
+        //autoChooser.addObject("2 Defense of program" , new TertiaryAutonomous());
+        SmartDashboard.putData("Autonomous mode chooser", autoChooser);*/
     }
 	
 	public void disabledPeriodic() {

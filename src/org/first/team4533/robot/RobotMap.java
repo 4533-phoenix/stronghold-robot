@@ -8,6 +8,7 @@ public class RobotMap {
 		public static final int MOTOR_PIVOT = 6;		//CAN Talon SRX
 		public static final int MOTOR_CLIMB = 3;		//CAN Talon SRX
 		public static final int MOTOR_ROLLER = 0;		//PWM Spark?
+		public static final int MOTOR_BRAKE = 1;
 		public static final int POTENTIOMETER_PIVOT = 0;	//Analog
 		
 		//CAN

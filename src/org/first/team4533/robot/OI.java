@@ -1,5 +1,8 @@
 package org.first.team4533.robot;
 
+import org.first.team4533.robot.commands.BrakeStop;
+import org.first.team4533.robot.commands.ClimbBrake;
+import org.first.team4533.robot.commands.ClimbBrakeUndo;
 import org.first.team4533.robot.commands.ClimbRelease;
 import org.first.team4533.robot.commands.ClimbStop;
 import org.first.team4533.robot.commands.ClimbUp;
@@ -26,8 +29,8 @@ public class OI {
 	//All below assignments are subject to change and likely will change
 	public static final int JOYSTICK_INTAKE = 7;			//1 = X
 	public static final int JOYSTICK_REVERSE_INTAKE = 8;	//2 = A
-															//3 = B
-															//4 = Y
+	public static final int JOYSTICK_BRAKE = 1;				//3 = B
+	public static final int JOYSTICK_UNDO_BRAKE = 3;		//4 = Y
 	public static final int JOYSTICK_CLIMB_UP = 4;			//5 = LB
 	public static final int JOYSTICK_ClIMB_RELEASE = 2;		//6 = RB
 	public static final int JOYSTICK_PIVOT_IN = 6;			//7 = LT
@@ -48,6 +51,8 @@ public class OI {
 				driver, JOYSTICK_ClIMB_RELEASE);
 		JoystickButton climbUp = new JoystickButton(//gunner,
 				driver, JOYSTICK_CLIMB_UP);
+		JoystickButton climbBrake = new JoystickButton(driver, JOYSTICK_BRAKE);
+		JoystickButton climbUndoBrake = new JoystickButton(driver, JOYSTICK_UNDO_BRAKE);
 		
 		intakeIn.whileHeld(new IntakeIn());
 		intakeIn.whenReleased(new IntakeStop());
@@ -67,6 +72,11 @@ public class OI {
 		climbUp.whileHeld(new ClimbUp());
 		climbUp.whenReleased(new ClimbStop());
 		
+		climbBrake.whileHeld(new ClimbBrake());
+		climbBrake.whenReleased(new BrakeStop());
+		
+		climbUndoBrake.whileHeld(new ClimbBrakeUndo());
+		climbUndoBrake.whenReleased(new BrakeStop());
 	}
 	
 	public static OI getInstance() {

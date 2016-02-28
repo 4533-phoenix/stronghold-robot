@@ -20,7 +20,7 @@ public class ClimbStop extends Command {
     }
 
     protected void execute() {
-    	this.climb.stop();
+    	this.climb.climbStop();
     }
 
     protected boolean isFinished() {
@@ -28,10 +28,10 @@ public class ClimbStop extends Command {
     }
 
     protected void end() {
-    	this.climb.stop();
+    	this.climb.climbStop();
     }
 
     protected void interrupted() {
-    	this.climb.stop();
+    	this.climb.climbStop();
     }
 }

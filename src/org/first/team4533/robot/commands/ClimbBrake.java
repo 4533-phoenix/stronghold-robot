@@ -7,11 +7,11 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ClimbRelease extends Command {
+public class ClimbBrake extends Command {
 
 	private ClimbSystem climb;
 
-    public ClimbRelease() {
+    public ClimbBrake() {
         this.climb = ClimbSystem.getInstance();
         requires(climb);
     }
@@ -20,7 +20,7 @@ public class ClimbRelease extends Command {
     }
 
     protected void execute() {
-    	this.climb.release();
+    	this.climb.brake();
     }
 
     protected boolean isFinished() {
@@ -28,10 +28,11 @@ public class ClimbRelease extends Command {
     }
 
     protected void end() {
-    	this.climb.climbStop();
+    	this.climb.brakeStop();
     }
 
     protected void interrupted() {
-    	this.climb.climbStop();
+    	this.climb.brakeStop();
     }
+   
 }
