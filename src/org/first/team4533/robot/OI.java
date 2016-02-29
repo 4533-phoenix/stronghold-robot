@@ -22,11 +22,11 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	private Joystick driver = new Joystick(0);
+	private Joystick driver = new Joystick(0);				//this is the joystick port for the first one plugged in, driver and the one used
 	private Joystick gunner = new Joystick(1);
 	private static OI INSTANCE;
 	
-	//All below assignments are subject to change and likely will change
+	//these are intergers that never change, they correspond to buttons on each remote
 	public static final int JOYSTICK_INTAKE = 7;			//1 = X
 	public static final int JOYSTICK_REVERSE_INTAKE = 8;	//2 = A
 	public static final int JOYSTICK_BRAKE = 1;				//3 = B
@@ -43,9 +43,9 @@ public class OI {
 				driver, JOYSTICK_INTAKE);
 		JoystickButton intakeOut = new JoystickButton(//gunner, 
 				driver, JOYSTICK_REVERSE_INTAKE);
-		JoystickButton pivotOut = new JoystickButton(//gunner,
+		JoystickButton pivotOut = new JoystickButton(//gunner,				These create officially each button on the driver remote
 				driver, JOYSTICK_PIVOT_OUT);
-		JoystickButton pivotIn = new JoystickButton(//gunner,
+		JoystickButton pivotIn = new JoystickButton(//gunner,				using the button numbers created above
 				driver, JOYSTICK_PIVOT_IN);
 		JoystickButton climbRelease = new JoystickButton(//gunner,
 				driver, JOYSTICK_ClIMB_RELEASE);
@@ -61,7 +61,7 @@ public class OI {
 		intakeOut.whenReleased(new IntakeStop());
 		
 		pivotIn.whileHeld(new PivotIn());
-		pivotIn.whenReleased(new PivotStop());
+		pivotIn.whenReleased(new PivotStop());							//These bind the buttons to a specific command
 		
 		pivotOut.whileHeld(new PivotOut());
 		pivotOut.whenReleased(new PivotStop());
@@ -79,22 +79,22 @@ public class OI {
 		climbUndoBrake.whenReleased(new BrakeStop());
 	}
 	
-	public static OI getInstance() {
+	public static OI getInstance() {						//This is a method you should never mess with
 		return INSTANCE;
 	}
 
 	public static void initialize() {
-		if (INSTANCE == null) {
-			INSTANCE = new OI();
-		}
+		if (INSTANCE == null) {								//This is a method you should never mess with but it is different than 
+			INSTANCE = new OI();						//it is originally created. This assures that there are not more than one buttons which
+		}												//can cause interference
 	}
 
     public Joystick getGunnerJoystick() {
-    	return gunner;
+    	return gunner;										//This is a method you should never mess with
 	}
 
 	public Joystick getDriverJoystick() {
-		return driver;
+		return driver;										//This is a method you should never mess with
 	}
 	
 	
