@@ -1,17 +1,13 @@
 package org.first.team4533.robot.commands;
 
-import org.first.team4533.robot.subsystems.DriveSystem;
 import org.first.team4533.robot.subsystems.PivotSystem;
 
-import edu.wpi.first.wpilibj.command.Command;
-
 /**
- *
+ *This is a timed method used for autonomous that takes in a given time and motor power
+ *The idea of this method is to pull in the pivot at the input power for the input time
  */
 public class TimedPivotRetract extends TimedCommand {
 	private PivotSystem pivot;
-
-	//private static final double DEFAULT_DRIVE_SPEED = 0.80;
 
 	public TimedPivotRetract(long duration) {
 		super(duration);
@@ -33,4 +29,4 @@ public class TimedPivotRetract extends TimedCommand {
 	protected void interrupted() {
 	}
 
-    }
+  }

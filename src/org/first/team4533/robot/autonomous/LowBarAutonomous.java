@@ -1,14 +1,11 @@
 package org.first.team4533.robot.autonomous;
 
-import org.first.team4533.robot.RobotMap;
 import org.first.team4533.robot.commands.TimedClimbRetract;
 import org.first.team4533.robot.commands.TimedDriveBackward;
 import org.first.team4533.robot.commands.TimedDriveForward;
 import org.first.team4533.robot.commands.TimedDriveTurnRight;
 import org.first.team4533.robot.commands.TimedPivotRetract;
 
-import edu.wpi.first.wpilibj.CANTalon;
-import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class LowBarAutonomous extends CommandGroup{

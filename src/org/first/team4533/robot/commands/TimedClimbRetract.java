@@ -1,18 +1,14 @@
 package org.first.team4533.robot.commands;
 
 import org.first.team4533.robot.subsystems.ClimbSystem;
-import org.first.team4533.robot.subsystems.DriveSystem;
-
-import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *A timed command used for autonomous that takes in a time and a motor power
+ *The idea for this one is to retract the climber at the input power for the input time
  */
 public class TimedClimbRetract extends TimedCommand {
 
 	private ClimbSystem climb;
-
-	//private static final double DEFAULT_RETRACT_SPEED = -0.50;
 
 	public TimedClimbRetract(long duration) {
 		super(duration);

@@ -2,6 +2,13 @@ package org.first.team4533.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
+/* 
+ * This command is not used EXPLICITLY in the code, but rather is used to create all of the timed
+ * methods that we use for autonomous
+ * Note that Each of the command methods with "Timed" in them extends TimedCommand and not Command
+ * lLike the rest of the commands 
+ */
+
 public abstract class TimedCommand extends Command {
 
 	/**
