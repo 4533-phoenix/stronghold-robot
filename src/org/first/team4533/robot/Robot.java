@@ -10,8 +10,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.vision.USBCamera;
 
-import org.first.team4533.robot.autonomous.DefaultAutonomous;
-import org.first.team4533.robot.autonomous.SecondaryAutonomous;
+import org.first.team4533.robot.autonomous.LowBarAutonomous;
+import org.first.team4533.robot.autonomous.MoatAutonoumous;
+import org.first.team4533.robot.autonomous.RampartsAutonomous;
+import org.first.team4533.robot.autonomous.RockWallAutonomous;
+import org.first.team4533.robot.autonomous.RoughTerrainAutonomous;
 import org.first.team4533.robot.subsystems.ClimbSystem;
 import org.first.team4533.robot.subsystems.DriveSystem;
 import org.first.team4533.robot.subsystems.IntakeSystem;
@@ -30,8 +33,8 @@ public class Robot extends IterativeRobot {
 
     public void robotInit() {
     	/*USBCamera camera = new USBCamera();
-    	cameraServer = CameraServer.getInstance();
-        cameraServer.setQuality(50);
+    	cameraServer = CameraServer.getInstance();			//This sequence is used for the basic usb camera and goes to the
+        cameraServer.setQuality(50);						//Dashboard, it might be the cause of bandwidth issues
         cameraServer.startAutomaticCapture(camera);*/
     	
     	ClimbSystem.initialize();				//These initialize each subsystem so that we have commands to access OI
@@ -41,11 +44,13 @@ public class Robot extends IterativeRobot {
         OI.initialize();						//This class creates the remotes and assigns all of the buttons to its command
         
         
-        /*autoChooser = new SendableChooser();
-        autoChooser.addDefault("Default program", new DefaultAutonomous());				//This would be the set of code that allows the team to	
-        autoChooser.addObject("1 Defense off program", new SecondaryAutonomous());		//pick an auto program from SMART dashboard
-        //autoChooser.addObject("2 Defense of program" , new TertiaryAutonomous());
-        SmartDashboard.putData("Autonomous mode chooser", autoChooser);*/
+        autoChooser = new SendableChooser();
+        autoChooser.addDefault("Low Bar", new LowBarAutonomous());				//This would be the set of code that allows the team to	
+        autoChooser.addObject("Rock Wall", new RockWallAutonomous());			//pick an auto program from SMART dashboard
+        autoChooser.addObject("Rough Terrain" , new RoughTerrainAutonomous());
+        autoChooser.addObject("Moat", new MoatAutonoumous());
+        autoChooser.addObject("Ramparts", new RampartsAutonomous());
+        SmartDashboard.putData("Autonomous mode chooser", autoChooser);
     }
 	
 	public void disabledPeriodic() {
@@ -54,7 +59,8 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
     	this.autonomousCommand = 														//This is the method where autonomous is initialized.
-    			new DefaultAutonomous();//(CommandGroup) autoChooser.getSelected();		//The new DefaultAutonomous() makes the default auto method
+    			//new DefaultAutonomous();
+    			(CommandGroup) autoChooser.getSelected();		//The new DefaultAutonomous() makes the default auto method
         this.autonomousCommand.start();													//the method that runs, the commented out one allows choosing
     }
 

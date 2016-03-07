@@ -54,10 +54,10 @@ public class OI {
 		JoystickButton climbBrake = new JoystickButton(driver, JOYSTICK_BRAKE);
 		JoystickButton climbUndoBrake = new JoystickButton(driver, JOYSTICK_UNDO_BRAKE);
 		
-		intakeIn.whileHeld(new IntakeIn());
-		intakeIn.whenReleased(new IntakeStop());
+		intakeIn.whileHeld(new IntakeIn());			//Executes intakeIn WHILE the button is pressed
+		intakeIn.whenReleased(new IntakeStop());	//executes intakestop WHEN the button is let go
 		
-		intakeOut.whileHeld(new IntakeOut());
+		intakeOut.whileHeld(new IntakeOut());	
 		intakeOut.whenReleased(new IntakeStop());
 		
 		pivotIn.whileHeld(new PivotIn());

@@ -87,20 +87,20 @@ public class DriveSystem extends Subsystem {
 		this.drive(0.0, 0.0);										// This is used a lot for whenever the robot has to stop
 	}
 	
-	public void turnLeft(double value1, double value2) {
-		this.drive(value1, value2);
+	public void turnLeft(double value1, double value2) {			//This is used in the timedTurnLeft command,
+		this.drive(value1, value2);									//Basically used for autonomous
 	}
 	
-	public void turnLeft() {
-		this.turnLeft(-.5,.5);
+	public void turnLeft() {										//Basic method if we are to lazy to put in values
+		this.turnLeft(-.5,.5);										//As seen here, turnLeft calls itself with the values so it goes up
 	}
 	
-	public void turnRight(double value1, double value2) {
-		this.drive(value1, value2);
+	public void turnRight(double value1, double value2) {			//This is used in the timedTurnLeft command,
+		this.drive(value1, value2);									//Basically used for autonomous
 	}
 	
-	public void turnRight() {
-		this.turnRight(.5,-.5);
+	public void turnRight() {										//Basic method if we are to lazy to put in values
+		this.turnRight(.5,-.5);										//As seen here, turnLeft calls itself with the values so it goes up
 	}
 
     public void initDefaultCommand() {

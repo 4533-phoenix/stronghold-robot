@@ -6,12 +6,13 @@ public class TimedDriveForward extends TimedCommand {
 
 	private DriveSystem drive;
 
-	private static final double DEFAULT_DRIVE_SPEED = 0.80;
+	private static double DEFAULT_DRIVE_SPEED;			//motor speed for autonomous driving forward
 
-	public TimedDriveForward(long duration) {
+	public TimedDriveForward(long duration, double speed) {
 		super(duration);
 		this.drive = DriveSystem.getInstance();
 		this.requires(this.drive);
+		DEFAULT_DRIVE_SPEED = speed;
 	}
 
 	@Override
