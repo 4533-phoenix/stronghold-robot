@@ -23,17 +23,17 @@ public class OI {
 	
 	//All below assignments are subject to change and likely will change
 	//Please do change them
-	/*public static final int JOYSTICK_INTAKE = 1;
+	public static final int JOYSTICK_INTAKE = 1;
 	public static final int JOYSTICK_REVERSE_INTAKE = 2;
 	public static final int JOYSTICK_PIVOT_OUT = 5;
 	public static final int JOYSTICK_PIVOT_IN = 6;
 	public static final int JOYSTICK_ClIMB_UP = 7;
 	public static final int JOYSTICK_CLIMB_DOWN = 8;
-	public static final int JOYSTICK_SHOOTER = 9;*/
+	public static final int JOYSTICK_SHOOTER = 9;
 	
 	private OI() {
 		
-		/*JoystickButton intakeIn = new JoystickButton(driver, 
+		JoystickButton intakeIn = new JoystickButton(driver, 
 				JOYSTICK_INTAKE);
 		JoystickButton intakeOut = new JoystickButton(driver, 
 				JOYSTICK_REVERSE_INTAKE);
@@ -53,7 +53,7 @@ public class OI {
 		pivotIn.whenReleased(new PivotStop());
 		
 		pivotOut.whileHeld(new PivotOut());
-		pivotOut.whenReleased(new PivotStop());*/
+		pivotOut.whenReleased(new PivotStop());
 		
 		
 		

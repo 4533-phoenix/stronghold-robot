@@ -14,8 +14,8 @@ public class PivotSystem extends Subsystem {
 	private static PivotSystem INSTANCE;
     private CANTalon pivotmotor;
     private static final double DEFAULT_PIVOT_STOP_VALUE = 0.0;
-	private static final double DEFAULT_PIVOT_IN_VALUE = 1.0;
-	private static final double DEFAULT_PIVOT_OUT_VALUE = -1.0;
+	private static final double DEFAULT_PIVOT_IN_VALUE = 0.4;
+	private static final double DEFAULT_PIVOT_OUT_VALUE = -0.4;
     
 	private PivotSystem() {
 		pivotmotor = new CANTalon(RobotMap.MOTOR_PIVOT);

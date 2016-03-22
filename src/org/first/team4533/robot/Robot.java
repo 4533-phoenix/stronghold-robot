@@ -21,9 +21,9 @@ public class Robot extends IterativeRobot {
 
     public void robotInit() {
     	
-    	//PivotSystem.initialize();
+    	PivotSystem.initialize();
     	DriveSystem.initialize();
-        //IntakeSystem.initialize();
+        IntakeSystem.initialize();
         OI.initialize();
     }
 	

@@ -13,7 +13,7 @@ public class IntakeSystem extends Subsystem {
     private static IntakeSystem INSTANCE;
     private Talon intakemotor;
     private static final double DEFAULT_INTAKE_STOP_VALUE = 0.0;
-	private static final double DEFAULT_INTAKE_IN_VALUE = 1.0;
+	private static final double DEFAULT_INTAKE_IN_VALUE = 0.5;
 	private static final double DEFAULT_INTAKE_OUT_VALUE = -1.0;
 	
 	private IntakeSystem() {

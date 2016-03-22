@@ -16,5 +16,8 @@ public class RobotMap {
 		public static final int MOTOR_RIGHT_REAR = 3;
 		public static final int MOTOR_ROLLER = 4;
 		public static final int MOTOR_PIVOT = 5;
+		
+		public static final int MOTOR_RIGHT = 0; //Talon
+		public static final int MOTOR_LEFT = 2; //Victor
 
 }
