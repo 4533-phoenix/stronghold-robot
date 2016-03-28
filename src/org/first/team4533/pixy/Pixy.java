@@ -6,6 +6,7 @@ import java.util.List;
 import edu.wpi.first.wpilibj.SerialPort;
 
 public class Pixy {
+	private static Pixy INSTANCE;
 	/**
 	 * Default baudrate for serial communications with the Pixy.
 	 */
@@ -39,6 +40,16 @@ public class Pixy {
 		this.pixy = new SerialPort(PIXY_BAUDRATE, SerialPort.Port.kMXP);
 	}
 
+	public static void initialize() {
+		if (INSTANCE == null) {
+			INSTANCE = new Pixy();					//This is a method you should never mess with but it is different from the default
+		}													//its different so that there are never 2, because it might cause interference
+	}
+	
+	public static Pixy getInstance() {
+		return INSTANCE;									//This is a method you should never mess with
+	}
+	
 	/**
 	 * Get a 16-bit word from the pixy.
 	 * 

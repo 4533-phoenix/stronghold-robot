@@ -9,11 +9,13 @@ import org.first.team4533.robot.subsystems.DriveSystem;
 public class TimedDriveTurnRight extends TimedCommand {
 
 	private DriveSystem drive;
+	private static double DEFAULT_DRIVE_SPEED;
 
-	public TimedDriveTurnRight(long duration) {
+	public TimedDriveTurnRight(long duration, double speed) {
 		super(duration);
 		this.drive = DriveSystem.getInstance();
 		this.requires(this.drive);
+		DEFAULT_DRIVE_SPEED = speed;
 	}
 
 	@Override
@@ -23,7 +25,7 @@ public class TimedDriveTurnRight extends TimedCommand {
 
 	@Override
 	protected void execute() {
-		this.drive.turnRight();
+		this.drive.turnRight(DEFAULT_DRIVE_SPEED, -DEFAULT_DRIVE_SPEED);
 	}
 
 	@Override
