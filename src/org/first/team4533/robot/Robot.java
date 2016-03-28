@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import edu.wpi.first.wpilibj.vision.USBCamera;
 
 import org.first.team4533.robot.autonomous.LowBarAutonomous;
-import org.first.team4533.robot.autonomous.MoatAutonoumous;
+import org.first.team4533.robot.autonomous.MoatAutonomous;
 import org.first.team4533.robot.autonomous.RampartsAutonomous;
 import org.first.team4533.robot.autonomous.RockWallAutonomous;
 import org.first.team4533.robot.autonomous.RoughTerrainAutonomous;
@@ -48,7 +48,7 @@ public class Robot extends IterativeRobot {
         autoChooser.addDefault("Low Bar", new LowBarAutonomous());				//This would be the set of code that allows the team to	
         autoChooser.addObject("Rock Wall", new RockWallAutonomous());			//pick an auto program from SMART dashboard
         autoChooser.addObject("Rough Terrain" , new RoughTerrainAutonomous());
-        autoChooser.addObject("Moat", new MoatAutonoumous());
+        autoChooser.addObject("Moat", new MoatAutonomous());
         autoChooser.addObject("Ramparts", new RampartsAutonomous());
         SmartDashboard.putData("Autonomous mode chooser", autoChooser);
     }
