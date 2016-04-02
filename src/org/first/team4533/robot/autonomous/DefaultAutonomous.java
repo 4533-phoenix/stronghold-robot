@@ -23,7 +23,7 @@ public class DefaultAutonomous extends CommandGroup{
 		//this.addSequential(new TimedClimbRetract(CLIMB_RETRACT_DURATION));
 		//this.addSequential(new TimedPivotRetract(PIVOT_RETRACT_DURATION));
 		//this.addSequential(new TimedDriveForward(DRIVE_BACKWARD_DURATION));
-		this.addSequential(new TimedDriveBackward(DRIVE_FORWARD_DURATION));				//These are the commands executed in order
+		this.addSequential(new TimedDriveBackward(DRIVE_FORWARD_DURATION, .8));				//These are the commands executed in order
 		//this.addSequential(new TimedDriveTurnRight(DRIVE_TURN_RIGHT_DURATION));		//backwards is forwards right now and vice versa
 		//this.addSequential(new TimedDriveBackward(DRIVE_FORWARD_SHOOT_DURATION));
 	}

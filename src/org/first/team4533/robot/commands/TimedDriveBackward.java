@@ -6,10 +6,11 @@ public class TimedDriveBackward extends TimedCommand {
 
 	private DriveSystem drive;
 
-	private static final double DEFAULT_DRIVE_SPEED = 0.80;
+	private static double DEFAULT_DRIVE_SPEED;
 
-	public TimedDriveBackward(long duration) {
+	public TimedDriveBackward(long duration, double speed) {
 		super(duration);
+		DEFAULT_DRIVE_SPEED = speed;
 		this.drive = DriveSystem.getInstance();
 		this.requires(this.drive);
 	}

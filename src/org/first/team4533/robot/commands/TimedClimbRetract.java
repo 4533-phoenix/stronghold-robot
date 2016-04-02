@@ -23,7 +23,7 @@ public class TimedClimbRetract extends TimedCommand {
 
 	@Override
 	protected void execute() {
-		this.climb.up();
+		this.climb.release();
 	}
 
 	@Override

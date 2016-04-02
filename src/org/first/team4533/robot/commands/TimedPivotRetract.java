@@ -22,7 +22,7 @@ public class TimedPivotRetract extends TimedCommand {
 
 	@Override
 	protected void execute() {
-		this.pivot.in();
+		this.pivot.out();
 	}
 
 	@Override
