@@ -23,7 +23,7 @@ public class DriveSystem extends Subsystem {
 	//private RobotDrive robotDrive;
 	
 	private static final double DEFAULT_SPEED_ADJUSTMENT = 0.60;	//This is the value that determines the speed at which the robot goes
-																	//So it moves at 60% of its possible power
+																	//So it moves at 60% of how far a direction the joystick is pressed
 	private DriveSystem() {
 		leftMaster = new CANTalon(RobotMap.MOTOR_LEFT_MASTER);
 		rightMaster = new CANTalon(RobotMap.MOTOR_RIGHT_MASTER);	//The master is the default kind of motor controller and this is the constructor

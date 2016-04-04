@@ -2,9 +2,9 @@ package org.first.team4533.robot.subsystems;
 
 import org.first.team4533.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.AnalogPotentiometer;
+//import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.CANTalon;
-import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
+//import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -12,22 +12,22 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class PivotSystem extends Subsystem {
 	private static PivotSystem INSTANCE;
-	private AnalogPotentiometer pivotpot;							//Potentiometer before we removed it
+	//private AnalogPotentiometer pivotpot;							//Potentiometer before we removed it
     private CANTalon pivotmaster;									//CAN talon controller used to control the pivot motor
-    private CANTalon pivotSlave;
+    //private CANTalon pivotSlave;									//CAN talon used when we had 2 motors on te pivot
     private static final double DEFAULT_PIVOT_STOP_VALUE = 0.0;		//value to stop the pivot motor
 	private static final double DEFAULT_PIVOT_IN_VALUE = 0.40;		//motor value used to pull the arm in
 	private static final double DEFAULT_PIVOT_OUT_VALUE = -0.40;	//motor value used to pivot the arm out
-	private static final double MAX_UP_VALUE = 2200;				//value used for the potentiometer before we removed it
-	private static final double MIN_DOWN_VALUE = 1000;				//value used for spring potentiometer before we removed it
+	//private static final double MAX_UP_VALUE = 2200;				//value used for the potentiometer before we removed it
+	//private static final double MIN_DOWN_VALUE = 1000;				//value used for spring potentiometer before we removed it
     
 	private PivotSystem() {
 		pivotmaster = new CANTalon(RobotMap.MOTOR_PIVOT);								//instantiates the CAN Talon controller
 		//pivotpot = new AnalogPotentiometer(RobotMap.POTENTIOMETER_PIVOT, 3600, 0.0); //instantiates the poteniometer
 		
-		/*pivotSlave = new CANTalon(RobotMap.MOTOR_PIVOT2);
+		/*pivotSlave = new CANTalon(RobotMap.MOTOR_PIVOT2);				//This was for when we had two motors on the pivot
 		pivotSlave.changeControlMode(TalonControlMode.Follower);		//This one and the following set the back up controllers so that they do not 
-		pivotSlave.set(RobotMap.MOTOR_LEFT_MASTER);*/
+		pivotSlave.set(RobotMap.MOTOR_LEFT_MASTER);*/					//interfere with the leader controller
 	}
 	public static PivotSystem getInstance() {
 		return INSTANCE;										//This is a method you should never mess with

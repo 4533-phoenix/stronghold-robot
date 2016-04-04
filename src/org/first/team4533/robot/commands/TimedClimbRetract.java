@@ -3,7 +3,7 @@ package org.first.team4533.robot.commands;
 import org.first.team4533.robot.subsystems.ClimbSystem;
 
 /**
- *A timed command used for autonomous that takes in a time and a motor power
+ *A timed command used for autonomous that takes in a time and has a default motor power
  *The idea for this one is to retract the climber at the input power for the input time
  */
 public class TimedClimbRetract extends TimedCommand {

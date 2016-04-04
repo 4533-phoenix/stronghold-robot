@@ -16,9 +16,9 @@ public class RampartsAutonomous extends CommandGroup {
 	private static final long CLIMB_DURATION = 1000;
     
     public  RampartsAutonomous() {
-    	this.addSequential(new TimedClimbRetract(CLIMB_DURATION));
+    	this.addSequential(new TimedClimbRetract(CLIMB_DURATION));						//This pulls the arm down out of starting config
     	this.addSequential(new TimedDriveForward(DRIVE_FORWARD_DURATION, -.9));
-    	this.addSequential(new TimedDriveBackward(DRIVE_BACKWARD_DURATION, .9));
+    	//this.addSequential(new TimedDriveBackward(DRIVE_BACKWARD_DURATION, .9));		//Our robot does not allow for us to go backwards over the ramparts
     }
     
     
