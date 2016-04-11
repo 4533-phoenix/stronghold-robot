@@ -22,7 +22,7 @@ public class DriveSystem extends Subsystem {
 	private CANTalon rightSlave;
 	//private RobotDrive robotDrive;
 	
-	private static final double DEFAULT_SPEED_ADJUSTMENT = 0.60;	//This is the value that determines the speed at which the robot goes
+	private static final double DEFAULT_SPEED_ADJUSTMENT = 0.70;	//This is the value that determines the speed at which the robot goes
 																	//So it moves at 60% of how far a direction the joystick is pressed
 	private DriveSystem() {
 		leftMaster = new CANTalon(RobotMap.MOTOR_LEFT_MASTER);

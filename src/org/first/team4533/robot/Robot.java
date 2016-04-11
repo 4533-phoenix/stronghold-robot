@@ -30,6 +30,8 @@ public class Robot extends IterativeRobot {
 	private CommandGroup autonomousCommand;					//default name and class for autonomous
 	private SendableChooser autoChooser;					//Smart Dashboard technique to choose which auto program
 	//private CameraServer cameraServer;
+	private int position;
+	private SendableChooser posChooser;
 
     public void robotInit() {
     	/*USBCamera camera = new USBCamera();
@@ -43,13 +45,22 @@ public class Robot extends IterativeRobot {
         IntakeSystem.initialize();
         OI.initialize();						//This class creates the remotes and assigns all of the buttons to its command
         
+        posChooser = new SendableChooser();
+        posChooser.addDefault("N/A", position = 0);
+        posChooser.addObject("1", position = 1);
+        posChooser.addObject("2", position = 2);
+        posChooser.addObject("3", position = 3);
+        posChooser.addObject("4", position = 4);
+        posChooser.addObject("5", position = 5);
+        SmartDashboard.putData("Position Chooser", posChooser);
+        
         
         autoChooser = new SendableChooser();
         autoChooser.addDefault("Low Bar", new LowBarAutonomous());				//This would be the set of code that allows the team to	
-        autoChooser.addObject("Rock Wall", new RockWallAutonomous());			//pick an auto program from SMART dashboard
-        autoChooser.addObject("Rough Terrain" , new RoughTerrainAutonomous());
-        autoChooser.addObject("Moat", new MoatAutonomous());
-        autoChooser.addObject("Ramparts", new RampartsAutonomous());
+        autoChooser.addObject("Rock Wall", new RockWallAutonomous(position));			//pick an auto program from SMART dashboard
+        autoChooser.addObject("Rough Terrain" , new RoughTerrainAutonomous(position));
+        autoChooser.addObject("Moat", new MoatAutonomous(position));
+        autoChooser.addObject("Ramparts", new RampartsAutonomous(position));
         SmartDashboard.putData("Autonomous mode chooser", autoChooser);
     }
 	
