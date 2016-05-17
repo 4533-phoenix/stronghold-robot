@@ -24,6 +24,8 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class OI {
 	private Joystick driver = new Joystick(0);				//this is the joystick port for the first one plugged in, driver and the one used
 	private Joystick gunner = new Joystick(1);
+	/*private Joystick left = new Joystick(0);
+	 private Joystick right = new Joystick(1);*/
 	private static OI INSTANCE;
 	
 	//these are intergers that never change, they correspond to buttons on each remote
@@ -36,6 +38,17 @@ public class OI {
 	public static final int JOYSTICK_PIVOT_IN = 6;			//7 = LT
 	public static final int JOYSTICK_PIVOT_OUT = 5;			//8 = RT
 	//public static final int JOYSTICK_SHOOTER = ?;
+	
+	/* Controls with the Attack 3 joysticks
+	 * public static final int JOYSTICK_INTAKE = ?;			
+	 * public static final int JOYSTICK_REVERSE_INTAKE = ?;	
+	 * public static final int JOYSTICK_BRAKE = ?;				
+	 * public static final int JOYSTICK_UNDO_BRAKE = ?;		
+	 * public static final int JOYSTICK_CLIMB_UP = ?;			
+	 * public static final int JOYSTICK_ClIMB_RELEASE = ?;		
+	 * public static final int JOYSTICK_PIVOT_IN = ?;			
+	 * public static final int JOYSTICK_PIVOT_OUT = ?;			
+	 */
 		
 	private OI() {
 		
@@ -51,8 +64,30 @@ public class OI {
 				driver, JOYSTICK_ClIMB_RELEASE);
 		JoystickButton climbUp = new JoystickButton(//gunner,
 				driver, JOYSTICK_CLIMB_UP);
-		JoystickButton climbBrake = new JoystickButton(driver, JOYSTICK_BRAKE);
-		JoystickButton climbUndoBrake = new JoystickButton(driver, JOYSTICK_UNDO_BRAKE);
+		JoystickButton climbBrake = new JoystickButton(
+				driver, JOYSTICK_BRAKE);
+		JoystickButton climbUndoBrake = new JoystickButton(
+				driver, JOYSTICK_UNDO_BRAKE);
+		
+		/*
+		 * JoystickButton intakeIn = new JoystickButton(//left, 
+				right, JOYSTICK_INTAKE);
+		 * JoystickButton intakeOut = new JoystickButton(//left, 
+				right, JOYSTICK_REVERSE_INTAKE);
+		 * JoystickButton pivotOut = new JoystickButton(//left,				These create officially each button on the driver remote
+				right, JOYSTICK_PIVOT_OUT);
+		 * JoystickButton pivotIn = new JoystickButton(//left,				using the button numbers created above
+				right, JOYSTICK_PIVOT_IN);
+		 * JoystickButton climbRelease = new JoystickButton(//left,
+				right, JOYSTICK_ClIMB_RELEASE);
+		 * JoystickButton climbUp = new JoystickButton(//left,
+				right, JOYSTICK_CLIMB_UP);
+		 * JoystickButton climbBrake = new JoystickButton(//left,
+				right, JOYSTICK_BRAKE);
+		 * JoystickButton climbUndoBrake = new JoystickButton(//left,
+				right, JOYSTICK_UNDO_BRAKE);
+		 */
+		
 		
 		intakeIn.whileHeld(new IntakeIn());			//Executes intakeIn WHILE the button is pressed
 		intakeIn.whenReleased(new IntakeStop());	//executes intakestop WHEN the button is let go
@@ -97,6 +132,13 @@ public class OI {
 		return driver;										//This is a method you should never mess with
 	}
 	
-	
+	/*
+	public Joystick GetLeftJoystick() {
+		return left;
+	}
+	public Joystick GetRightJoystick() {
+		return right;
+	}
+	*/
 }
 

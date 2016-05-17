@@ -46,8 +46,7 @@ public class Robot extends IterativeRobot {
         OI.initialize();						//This class creates the remotes and assigns all of the buttons to its command
         
         posChooser = new SendableChooser();
-        posChooser.addDefault("N/A", position = 0);
-        posChooser.addObject("1", position = 1);
+        posChooser.addDefault("N/A or 1", position = 0);
         posChooser.addObject("2", position = 2);
         posChooser.addObject("3", position = 3);
         posChooser.addObject("4", position = 4);
@@ -57,6 +56,11 @@ public class Robot extends IterativeRobot {
         
         autoChooser = new SendableChooser();
         autoChooser.addDefault("Low Bar", new LowBarAutonomous());				//This would be the set of code that allows the team to	
+        autoChooser.addObject("             position 1", 0==0);
+        autoChooser.addObject("        position 2", 0==0);
+        autoChooser.addObject("         position 3", 0==0);
+        autoChooser.addObject("          position 4", 0==0);
+        autoChooser.addObject("           position 5", 0==0);
         autoChooser.addObject("Rock Wall", new RockWallAutonomous(position));			//pick an auto program from SMART dashboard
         autoChooser.addObject("Rough Terrain" , new RoughTerrainAutonomous(position));
         autoChooser.addObject("Moat", new MoatAutonomous(position));

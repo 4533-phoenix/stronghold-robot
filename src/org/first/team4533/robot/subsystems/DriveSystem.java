@@ -63,8 +63,9 @@ public class DriveSystem extends Subsystem {
 		this.rightMaster.set(right*DEFAULT_SPEED_ADJUSTMENT);		//we move in the correct direction based on the joystick
 		this.rightSlave.set(RobotMap.MOTOR_RIGHT_MASTER);
 	}
-	public void driveWithJoystick(Joystick driver) {
+	public void driveWithJoystick(Joystick driver/*Joystick left, Joystick right*/) { 
 		this.drive(driver.getY(), driver.getRawAxis(3));			//This is the method that calls the DriveWithJoystick method in commands. This
+		//this.drive(left.getY(), right.getY());
 	}																//was how we move, it is not precise and struggled with our tank drive config
 	
 	public void forward(double value) {
