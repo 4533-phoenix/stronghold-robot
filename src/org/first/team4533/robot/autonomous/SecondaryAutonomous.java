@@ -18,10 +18,10 @@ public class SecondaryAutonomous extends CommandGroup {
 	private static final long DRIVE_TURNRIGHT_DURATION = 1000;
 
 	public SecondaryAutonomous() {
-		this.addSequential(new TimedDriveTurnLeft(DRIVE_TURNLEFT_DURATION));
-		this.addSequential(new TimedDriveForward(DRIVE_FORWARD_REPOSITION_DURATION));
-		this.addSequential(new TimedDriveBackward(DRIVE_TURNRIGHT_DURATION));
-		this.addSequential(new TimedDriveForward(DRIVE_FORWARD_OVER_OBSTACLE_DURATION));
+		this.addSequential(new TimedDriveTurnLeft(DRIVE_TURNLEFT_DURATION, 0.7));
+		this.addSequential(new TimedDriveForward(DRIVE_FORWARD_REPOSITION_DURATION, 0.7));
+		this.addSequential(new TimedDriveBackward(DRIVE_TURNRIGHT_DURATION, 0.7));
+		this.addSequential(new TimedDriveForward(DRIVE_FORWARD_OVER_OBSTACLE_DURATION, 0.7));
 		
 	}
 }
